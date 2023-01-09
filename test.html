@@ -19,6 +19,20 @@
         <span v-bind:title="spantitle">这是span，鼠标悬停几秒钟查看此处动态绑定的提示信息</span>
     </div>
 
+    <!-- v-if：控制是否显示 -->
+    <div id='app2' v-if="show">
+        <p>是否显示</p>
+    </div>
+
+    <!-- v-for:绑定数组的数据来进行渲染 -->
+    <div id="app3">
+        <ol>
+            <li v-for="(item, index) in items" :key="index">
+                {{ item.text }}
+            </li>
+        </ol>
+    </div>
+
     <script>
         // 想要响应式就要放在data里面
         var app = new Vue({
@@ -32,6 +46,26 @@
         })
         //这里修改了值，ui会马上刷新，因为动态绑定
         app.a = 99;
+
+        var app2 = new Vue({
+            el: '#app2',
+            data: {
+                show: true,
+            }
+        });
+
+        var app3 = new Vue({
+            el: '#app3',
+            data: {
+                // 这里算是数组还是Map呢，如果是Map，text作为key也不是这么写的啊
+                items: [
+                    { text: '学习 JavaScript' },
+                    { text: '学习 Vue' },
+                    { text: '整个牛项目' }
+                ]
+            }
+        });
+        app3.items.push({ text: '新项目' })
     </script>
 </body>
 
