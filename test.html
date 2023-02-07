@@ -66,6 +66,16 @@
             }
         });
         app3.items.push({ text: '新项目' })
+
+    //这里是字面量对象的写法
+    var map = { 'name': 'potter', age: 30 };//这里的key加不加引号都行
+    map['love'] = 'liuwen';//这里的key必须加引号
+    console.log(map.love);//map.xxx和map['xxx']是等效的
+
+    //map是new出来的，k-v对的新增，修改，获取是set/get
+    var map2 = new Map();
+    map2.set('time', '14:32');
+    console.log(map2.get('time'));
     </script>
 </body>
 
